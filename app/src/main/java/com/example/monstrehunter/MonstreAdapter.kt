@@ -12,7 +12,7 @@ class MonstreAdapter(private val monstres: List<Monstre>) :
     RecyclerView.Adapter<MonstreAdapter.MonstreViewHolder>() {
 
     class MonstreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nomView: TextView = itemView.findViewById(R.id.monstres)
+        val nomView: TextView = itemView.findViewById(R.id.monstresCpature)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonstreViewHolder {

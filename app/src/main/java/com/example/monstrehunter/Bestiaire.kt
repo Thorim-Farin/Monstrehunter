@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.monstrehunter.Monstre
 import com.example.monstrehunter.R
-import kotlinx.coroutines.flow.internal.NoOpContinuation.context
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 class Bestiaire : AppCompatActivity() {
 
@@ -36,6 +34,7 @@ class Bestiaire : AppCompatActivity() {
             sortOrder // L'ordre de tri
         )
 
+
         //Met tout les monstres capturés dans une liste visible sur l'écran
         val monstresCapture = ArrayList<Monstre>()
         with(cursor) {
@@ -43,7 +42,7 @@ class Bestiaire : AppCompatActivity() {
                 val nom = getString(getColumnIndexOrThrow("nom"))
                 val type = getString(getColumnIndexOrThrow("type"))
                 val niveau = getInt(getColumnIndexOrThrow("niveau"))
-                val monstre = Monstre(nom, type, niveau)
+                val monstre = Monstre(nom, type, niveau, 30, 0, "",true,"")
                 monstresCapture.add(monstre)
             }
         }
