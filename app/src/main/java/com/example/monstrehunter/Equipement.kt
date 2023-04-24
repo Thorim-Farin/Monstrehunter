@@ -5,10 +5,13 @@ class Equipement(
     var pointArmure: Int,
     var pointResistanceMagique: Int,
     val partieDuCorps: String,
-    var emplacementsDeRune: MutableList<Rune>
+    var emplacementsDeRune: MutableList<Rune>,
+    var maxRune : Int = 0
 ) {
+    // mêtre le nombre de rune dans le constructeur
+
     fun ajouterRune(rune: Rune) {
-        if (emplacementsDeRune.size < emplacementsDeRune.maxSize) {
+        if (emplacementsDeRune.size <= maxRune) {
             emplacementsDeRune.add(rune)
             println("Vous avez équipé une ${rune.nom} sur votre $nom.")
         } else {

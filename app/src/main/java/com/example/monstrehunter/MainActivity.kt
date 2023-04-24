@@ -1,9 +1,8 @@
 package com.example.monstrehunter
-import Bestiaire
-import Carte
+import com.example.monstrehunter.Bestiaire
+import com.example.monstrehunter.Carte
 
-import Inventaire
-import Profil
+import com.example.monstrehunter.Profil
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

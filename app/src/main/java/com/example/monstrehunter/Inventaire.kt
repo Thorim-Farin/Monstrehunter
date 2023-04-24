@@ -1,12 +1,13 @@
+package com.example.monstrehunter
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.monstrehunter.*
-import com.example.monstrehunter.Inventaire.PageEquipement
-import com.example.monstrehunter.Inventaire.PageIngredients
-import com.example.monstrehunter.Inventaire.PagePotions
-import com.example.monstrehunter.Inventaire.PageRunes
+import com.example.monstrehunter.Inventory.PageEquipement
+import com.example.monstrehunter.Inventory.PageIngredients
+import com.example.monstrehunter.Inventory.PagePotions
+import com.example.monstrehunter.Inventory.PageRunes
 import com.example.monstrehunter.R.layout.activity_inventaire
 
 class Inventaire : AppCompatActivity() {
