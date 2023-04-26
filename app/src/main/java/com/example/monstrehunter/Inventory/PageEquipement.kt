@@ -1,4 +1,6 @@
 package com.example.monstrehunter.Inventory
 
-class PageEquipement {
+import androidx.appcompat.app.AppCompatActivity
+
+class PageEquipement: AppCompatActivity() {
 }

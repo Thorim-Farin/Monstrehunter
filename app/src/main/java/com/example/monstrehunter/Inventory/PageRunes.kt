@@ -1,4 +1,6 @@
 package com.example.monstrehunter.Inventory
 
-class PageRunes {
+import androidx.appcompat.app.AppCompatActivity
+
+class PageRunes: AppCompatActivity() {
 }

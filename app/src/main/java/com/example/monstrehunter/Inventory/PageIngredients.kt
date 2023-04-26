@@ -1,4 +1,6 @@
 package com.example.monstrehunter.Inventory
 
-class PageIngredients {
+import androidx.appcompat.app.AppCompatActivity
+
+class PageIngredients: AppCompatActivity() {
 }

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="activity_carte_view" type="id">100</item>
+    <item name="activity_carte_view" type="id"/>
 </resources>
