@@ -1,15 +1,20 @@
 package com.example.monstrehunter
 
+import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.math.roundToInt
 
 
-class Carte : AppCompatActivity(), SensorEventListener {
+class Carte : AppCompatActivity(), SensorEventListener, LocationListener {
     /*
     private val paint = Paint()
     private val obstacles = ArrayList<Obstacle>()
@@ -47,6 +52,8 @@ class Carte : AppCompatActivity(), SensorEventListener {
 
     private var sensorManager: SensorManager? = null
     private var gyroscope: Sensor? = null
+    private lateinit var locationManager: LocationManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,11 +64,17 @@ class Carte : AppCompatActivity(), SensorEventListener {
 
         // Récupération du capteur Gyroscope
         gyroscope = sensorManager!!.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
+
+        // Récupération du service LocalizationManager
+        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
     }
 
     override fun onResume() {
         super.onResume()
         sensorManager!!.registerListener(this, gyroscope, SensorManager.SENSOR_DELAY_NORMAL)
+
+
         }
 
     override fun onPause() {
@@ -72,9 +85,9 @@ class Carte : AppCompatActivity(), SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
         if (event?.sensor?.type == Sensor.TYPE_GYROSCOPE) {
             // Récupération des valeurs x, y et z du gyroscope
-            val x = event!!.values[0]
-            val y = event.values[1]
-            val z = event.values[2]
+            val x = (event!!.values[0]*100.0).roundToInt() / 100.0
+            val y = (event!!.values[1]*100.0).roundToInt() / 100.0
+            val z = (event!!.values[2]* 100.0).roundToInt() / 100.0
 
             // utilisation des valeurs
 
@@ -85,6 +98,14 @@ class Carte : AppCompatActivity(), SensorEventListener {
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+    }
+
+    override fun onLocationChanged(location: Location) {
+        if (location != null) {
+            val latitude = location.latitude *100.0
+            val longitude = location.longitude
+            findViewById<TextView>(R.id.vallocal).text = "Latitude : ${latitude.toString()} \nLongitude : ${longitude.toString()}"
+        }
     }
 
 
