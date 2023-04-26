@@ -1,4 +1,5 @@
 package com.example.monstrehunter
+import android.content.Context
 import com.example.monstrehunter.Bestiaire
 import com.example.monstrehunter.Carte
 
@@ -10,6 +11,8 @@ import android.os.Bundle
 import android.view.Gravity
 import android.widget.TextView
 import android.content.res.Resources
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.util.DisplayMetrics
 import android.view.ViewGroup
 import android.widget.Button
@@ -60,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         val carteButton = findViewById<Button>(R.id.carte)
 
         val buttons = listOf(profilButton, inventaireButton, bestiaireButton, carteButton)
-
+        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         for (button in buttons) {
             button.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             button.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
@@ -68,21 +71,26 @@ class MainActivity : AppCompatActivity() {
             button.setPadding(0, 16.dp, 0, 16.dp)
             button.setOnClickListener {
                 when(button.id) {
+
                     R.id.profil -> {
                         val intent = Intent(this, Profil::class.java)
                         startActivity(intent)
+                        vibrator.vibrate(VibrationEffect.createOneShot(1000, 200))
                     }
                     R.id.inventaire -> {
                         val intent = Intent(this, Inventaire::class.java)
                         startActivity(intent)
+                        vibrator.vibrate(VibrationEffect.createOneShot(1000, 100))
                     }
                     R.id.bestiaire -> {
                         val intent = Intent(this, Bestiaire::class.java)
                         startActivity(intent)
+                        vibrator.vibrate(VibrationEffect.createOneShot(1000, 50))
                     }
                     R.id.carte -> {
                         val intent = Intent(this, Carte::class.java)
                         startActivity(intent)
+                        vibrator.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE))
                     }
                 }
             }
